@@ -9,7 +9,7 @@ namespace NowOnline.AppHarbor.Repositories
         public void InitializeDatabase(DataContext context)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataContext, Configuration>());
-            context.Database.Initialize(true);
+            context.Database.Initialize(false);
             Seed(context);
         }
 

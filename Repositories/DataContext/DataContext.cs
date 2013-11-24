@@ -21,6 +21,11 @@ namespace NowOnline.AppHarbor.Repositories
 
         public IDbSet<Application> Applications { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
         public void ExecuteCommand(string command, params object[] parameters)
         {
             base.Database.ExecuteSqlCommand(command, parameters);
