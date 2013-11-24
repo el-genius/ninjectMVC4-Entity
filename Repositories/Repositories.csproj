@@ -7,8 +7,8 @@
     <ProjectGuid>{950C7AC0-8677-4425-A86D-F39E1B4498F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Repositories</RootNamespace>
-    <AssemblyName>Repositories</AssemblyName>
+    <RootNamespace>NowOnline.AppHarbor.Repositories</RootNamespace>
+    <AssemblyName>nowonline.appharbor.repositories</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

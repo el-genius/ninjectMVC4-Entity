@@ -19,12 +19,12 @@ namespace NowOnline.AppHarbor.Repositories
             var seededBefore = context.Applications.Any();
             if (seededBefore) { return; }
 
-            var digiflexTeam = new Team() { Name = "Digiflex" };
-            var nekoTeam = new Team() { Name = "Neko" };
+            var teamA = new Team() { Name = "Team A" };
+            var teamB = new Team() { Name = "Team B" };
 
-            context.Applications.Add(new Application() { Name = "Plug And Payroll", BitBucketName = "plugandpayroll", Team = nekoTeam });
-            context.Applications.Add(new Application() { Name = "Digiflex", BitBucketName = "digiflex", Team = digiflexTeam });
-            context.Applications.Add(new Application() { Name = "WubHub", BitBucketName = "wubhub", Team = digiflexTeam });
+            context.Applications.Add(new Application() { Name = "Application A", Team = teamB });
+            context.Applications.Add(new Application() { Name = "Application B", Team = teamA });
+            context.Applications.Add(new Application() { Name = "Application C", Team = teamA });
 
             context.SaveChanges();
         }
