@@ -19,7 +19,6 @@ namespace NowOnline.AppHarbor.Repositories
             return base.Set<T>();
         }
 
-        public IDbSet<Tag> Tags { get; set; }
         public IDbSet<Application> Applications { get; set; }
 
         public void ExecuteCommand(string command, params object[] parameters)
