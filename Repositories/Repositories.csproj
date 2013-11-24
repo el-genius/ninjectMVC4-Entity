@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201311241958455_AddedDeletedMarkers.Designer.cs">
       <DependentUpon>201311241958455_AddedDeletedMarkers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311242024484_RemovedCommentsFromApplication.cs" />
+    <Compile Include="Migrations\201311242024484_RemovedCommentsFromApplication.Designer.cs">
+      <DependentUpon>201311242024484_RemovedCommentsFromApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Interfaces\ITeamRepository.cs" />
@@ -95,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201311241958455_AddedDeletedMarkers.resx">
       <DependentUpon>201311241958455_AddedDeletedMarkers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311242024484_RemovedCommentsFromApplication.resx">
+      <DependentUpon>201311242024484_RemovedCommentsFromApplication.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

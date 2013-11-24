@@ -15,7 +15,6 @@ namespace NowOnline.AppHarbor.Repositories
         public int Id { get; set; }
         public virtual Team Team { get; set; }
         public string Name { get; set; }
-        public string Comment { get; set; }
         public DateTime? Deleted { get; set; }
 
         [ForeignKey("Team")]
