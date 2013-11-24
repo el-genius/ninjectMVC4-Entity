@@ -49,25 +49,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext\DataContext.cs" />
-    <Compile Include="DataContext\DataContextInitializer.cs" />
     <Compile Include="DataContext\IDataContext.cs" />
     <Compile Include="Entities\Application.cs" />
     <Compile Include="Entities\Team.cs" />
-    <Compile Include="Migrations\201311241329051_InitialCreate.cs" />
-    <Compile Include="Migrations\201311241329051_InitialCreate.Designer.cs">
-      <DependentUpon>201311241329051_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201311241551454_InitialCreate.cs" />
+    <Compile Include="Migrations\201311241551454_InitialCreate.Designer.cs">
+      <DependentUpon>201311241551454_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201311241502380_RemovedTagEntity.cs" />
-    <Compile Include="Migrations\201311241502380_RemovedTagEntity.Designer.cs">
-      <DependentUpon>201311241502380_RemovedTagEntity.cs</DependentUpon>
+    <Compile Include="Migrations\201311241553048_RemovedCommentsColumn.cs" />
+    <Compile Include="Migrations\201311241553048_RemovedCommentsColumn.Designer.cs">
+      <DependentUpon>201311241553048_RemovedCommentsColumn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201311241511469_AddedCommentToApplication.cs" />
-    <Compile Include="Migrations\201311241511469_AddedCommentToApplication.Designer.cs">
-      <DependentUpon>201311241511469_AddedCommentToApplication.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311241522338_RemovedCommentFromApplication.cs" />
-    <Compile Include="Migrations\201311241522338_RemovedCommentFromApplication.Designer.cs">
-      <DependentUpon>201311241522338_RemovedCommentFromApplication.cs</DependentUpon>
+    <Compile Include="Migrations\201311241554151_AddedCommentColumn.cs" />
+    <Compile Include="Migrations\201311241554151_AddedCommentColumn.Designer.cs">
+      <DependentUpon>201311241554151_AddedCommentColumn.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,17 +78,14 @@
     <Content Include="Migrations\How Does It Work.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201311241329051_InitialCreate.resx">
-      <DependentUpon>201311241329051_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201311241551454_InitialCreate.resx">
+      <DependentUpon>201311241551454_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311241502380_RemovedTagEntity.resx">
-      <DependentUpon>201311241502380_RemovedTagEntity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201311241553048_RemovedCommentsColumn.resx">
+      <DependentUpon>201311241553048_RemovedCommentsColumn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311241511469_AddedCommentToApplication.resx">
-      <DependentUpon>201311241511469_AddedCommentToApplication.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311241522338_RemovedCommentFromApplication.resx">
-      <DependentUpon>201311241522338_RemovedCommentFromApplication.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201311241554151_AddedCommentColumn.resx">
+      <DependentUpon>201311241554151_AddedCommentColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

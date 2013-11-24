@@ -7,13 +7,13 @@ namespace NowOnline.AppHarbor.Repositories
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.1-21010")]
-    public sealed partial class AddedCommentToApplication : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedCommentToApplication));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201311241511469_AddedCommentToApplication"; }
+            get { return "201311241551454_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

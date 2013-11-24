@@ -7,13 +7,13 @@ namespace NowOnline.AppHarbor.Repositories
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.1-21010")]
-    public sealed partial class RemovedTagEntity : IMigrationMetadata
+    public sealed partial class RemovedCommentsColumn : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RemovedTagEntity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RemovedCommentsColumn));
         
         string IMigrationMetadata.Id
         {
-            get { return "201311241502380_RemovedTagEntity"; }
+            get { return "201311241553048_RemovedCommentsColumn"; }
         }
         
         string IMigrationMetadata.Source

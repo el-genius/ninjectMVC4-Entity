@@ -3,16 +3,16 @@ namespace NowOnline.AppHarbor.Repositories
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddedCommentToApplication : DbMigration
+    public partial class RemovedCommentsColumn : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Applications", "Comment", c => c.String());
+            DropColumn("dbo.Applications", "Comments");
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Applications", "Comment");
+            AddColumn("dbo.Applications", "Comments", c => c.String());
         }
     }
 }
