@@ -14,6 +14,7 @@ namespace NowOnline.AppHarbor.Repositories
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
+        public DateTime? Deleted { get; set; }
 
         // navigation properties
         public virtual ICollection<Application> Applications { get; set; }

@@ -56,6 +56,7 @@ namespace NowOnline.AppHarbor.WebSite.App_Start
         {
             kernel.Bind<IDataContext>().To<DataContext>();
             kernel.Bind<IApplicationRepository>().To<ApplicationRepository>();
+            kernel.Bind<ITeamRepository>().To<TeamRepository>();
 
         }        
     }

@@ -64,8 +64,14 @@
     <Compile Include="Migrations\201311241554151_AddedCommentColumn.Designer.cs">
       <DependentUpon>201311241554151_AddedCommentColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311241958455_AddedDeletedMarkers.cs" />
+    <Compile Include="Migrations\201311241958455_AddedDeletedMarkers.Designer.cs">
+      <DependentUpon>201311241958455_AddedDeletedMarkers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Interfaces\ITeamRepository.cs" />
+    <Compile Include="Repositories\TeamRepository.cs" />
     <Compile Include="Repositories\ApplicationRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\Interfaces\IApplicationRepository.cs" />
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201311241554151_AddedCommentColumn.resx">
       <DependentUpon>201311241554151_AddedCommentColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311241958455_AddedDeletedMarkers.resx">
+      <DependentUpon>201311241958455_AddedDeletedMarkers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
