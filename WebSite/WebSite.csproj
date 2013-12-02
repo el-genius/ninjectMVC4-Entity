@@ -183,6 +183,9 @@
     <Content Include="Views\Application\Edit.cshtml" />
     <Content Include="Views\Application\Delete.cshtml" />
     <Content Include="Views\Application\ManageApplicationPartial.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
