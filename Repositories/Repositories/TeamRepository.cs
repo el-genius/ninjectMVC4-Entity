@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace NowOnline.AppHarbor.Repositories
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
 {
-    public class TeamRepository : GenericRepository<Team>, ITeamRepository
+    public class TeamRepository : RepositoryBase<Team>, ITeamRepository
     {
         public TeamRepository(IDataContext dataContext)
             : base(dataContext)

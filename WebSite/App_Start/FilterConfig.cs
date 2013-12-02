@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace NowOnline.AppHarbor.WebSite
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite
 {
     public class FilterConfig
     {

@@ -1,7 +1,7 @@
-[assembly: WebActivator.PreApplicationStartMethod(typeof(NowOnline.AppHarbor.WebSite.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(NowOnline.AppHarbor.WebSite.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof(ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.App_Start.NinjectWebCommon), "Stop")]
 
-namespace NowOnline.AppHarbor.WebSite.App_Start
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.App_Start
 {
     using System;
     using System.Web;
@@ -10,7 +10,7 @@ namespace NowOnline.AppHarbor.WebSite.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using NowOnline.AppHarbor.Repositories;
+    using ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories;
 
     public static class NinjectWebCommon 
     {
@@ -57,7 +57,6 @@ namespace NowOnline.AppHarbor.WebSite.App_Start
             kernel.Bind<IDataContext>().To<DataContext>();
             kernel.Bind<IApplicationRepository>().To<ApplicationRepository>();
             kernel.Bind<ITeamRepository>().To<TeamRepository>();
-
         }        
     }
 }

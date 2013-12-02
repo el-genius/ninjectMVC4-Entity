@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NowOnline.AppHarbor.WebSite</RootNamespace>
-    <AssemblyName>nowonline.appharbor.website</AssemblyName>
+    <RootNamespace>ChristiaanVerwijs.MvcSiteWithEntityFramework.Website</RootNamespace>
+    <AssemblyName>website</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -183,10 +183,6 @@
     <Content Include="Views\Application\Edit.cshtml" />
     <Content Include="Views\Application\Delete.cshtml" />
     <Content Include="Views\Application\ManageApplicationPartial.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

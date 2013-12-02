@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace NowOnline.AppHarbor.Repositories
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
 {
-    public class ApplicationRepository : GenericRepository<Application>, IApplicationRepository
+    public class ApplicationRepository : RepositoryBase<Application>, IApplicationRepository
     {
         public ApplicationRepository(IDataContext dataContext)
             : base(dataContext)

@@ -7,8 +7,8 @@
     <ProjectGuid>{950C7AC0-8677-4425-A86D-F39E1B4498F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NowOnline.AppHarbor.Repositories</RootNamespace>
-    <AssemblyName>nowonline.appharbor.repositories</AssemblyName>
+    <RootNamespace>ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories</RootNamespace>
+    <AssemblyName>repositories</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -56,52 +56,26 @@
     <Compile Include="Migrations\201311241551454_InitialCreate.Designer.cs">
       <DependentUpon>201311241551454_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201311241553048_RemovedCommentsColumn.cs" />
-    <Compile Include="Migrations\201311241553048_RemovedCommentsColumn.Designer.cs">
-      <DependentUpon>201311241553048_RemovedCommentsColumn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311241554151_AddedCommentColumn.cs" />
-    <Compile Include="Migrations\201311241554151_AddedCommentColumn.Designer.cs">
-      <DependentUpon>201311241554151_AddedCommentColumn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311241958455_AddedDeletedMarkers.cs" />
-    <Compile Include="Migrations\201311241958455_AddedDeletedMarkers.Designer.cs">
-      <DependentUpon>201311241958455_AddedDeletedMarkers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311242024484_RemovedCommentsFromApplication.cs" />
-    <Compile Include="Migrations\201311242024484_RemovedCommentsFromApplication.Designer.cs">
-      <DependentUpon>201311242024484_RemovedCommentsFromApplication.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Interfaces\ITeamRepository.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />
     <Compile Include="Repositories\ApplicationRepository.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\Interfaces\IApplicationRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IGenericRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Migrations\How Does It Work.txt" />
+    <Content Include="Migrations\EF Commands.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201311241551454_InitialCreate.resx">
       <DependentUpon>201311241551454_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311241553048_RemovedCommentsColumn.resx">
-      <DependentUpon>201311241553048_RemovedCommentsColumn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311241554151_AddedCommentColumn.resx">
-      <DependentUpon>201311241554151_AddedCommentColumn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311241958455_AddedDeletedMarkers.resx">
-      <DependentUpon>201311241958455_AddedDeletedMarkers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311242024484_RemovedCommentsFromApplication.resx">
-      <DependentUpon>201311242024484_RemovedCommentsFromApplication.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

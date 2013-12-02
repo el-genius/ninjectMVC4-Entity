@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="NowOnline.AppHarbor.WebSite.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.MvcApplication" Language="C#" %>

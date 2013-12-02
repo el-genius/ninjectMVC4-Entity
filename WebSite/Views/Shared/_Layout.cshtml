@@ -2,23 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="10">
     <meta name="viewport" content="width=device-width">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    @if (ViewData["SuccessMessage"] != null)
+    @if (TempData["SuccessMessage"] != null)
     {
         <div class="alert alert-success">
-            @ViewData["SuccessMessage"].ToString()
+            @TempData["SuccessMessage"].ToString()
         </div>
     }
-    @if (ViewData["ErrorMessage"] != null)
+    @if (TempData["ErrorMessage"] != null)
     {
         <div class="alert alert-danger">
-            @ViewData["ErrorMessage"].ToString()
+            @TempData["ErrorMessage"].ToString()
         </div>
     }
 

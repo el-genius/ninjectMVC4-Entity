@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NowOnline.AppHarbor.Repositories
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
 {
-    public interface ITeamRepository : IGenericRepository<Team>
+    public interface ITeamRepository : IRepositoryBase<Team>
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace NowOnline.AppHarbor.Repositories
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
 {
     public class Application
     {

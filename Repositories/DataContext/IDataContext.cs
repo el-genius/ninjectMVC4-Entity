@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 
-namespace NowOnline.AppHarbor.Repositories
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
 {
     public interface IDataContext
     {

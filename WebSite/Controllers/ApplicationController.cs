@@ -1,12 +1,12 @@
-﻿using NowOnline.AppHarbor.Repositories;
+﻿using ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using NowOnline.AppHarbor.WebSite.Models;
+using ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Models;
 
-namespace NowOnline.AppHarbor.WebSite.Controllers
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Controllers
 {
     public class ApplicationController : ControllerBase
     {
@@ -62,7 +62,7 @@ namespace NowOnline.AppHarbor.WebSite.Controllers
             if (application == null)
             {
                 base.SetErrorMessage("Application with Id [{0}] does not exist", id.ToString());
-                RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
             LoadTeamsInViewData(application.TeamId);
@@ -74,15 +74,12 @@ namespace NowOnline.AppHarbor.WebSite.Controllers
         {
             if (ModelState.IsValid)
             {
+                var application = applicationRepository.GetById(model.Id);
+                if (application == null) { throw new ArgumentException(string.Format("Application with Id [{0}] does not exist", model.Id)); }
+
                 try
                 {
-                    var application = applicationRepository.GetById(model.Id);
-                    if (application == null)
-                    {
-                        base.SetErrorMessage("Application with Id [{0}] does not exist", model.Id.ToString());
-                        RedirectToAction("Index");
-                    }
-
+  
                     application.Name = model.Name;
                     application.TeamId = model.TeamId;
                     applicationRepository.UpdateAndSubmit(application);
@@ -107,7 +104,7 @@ namespace NowOnline.AppHarbor.WebSite.Controllers
             if (application == null)
             {
                 base.SetErrorMessage("Application with Id [{0}] does not exist", id.ToString());
-                RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
             return View(new ApplicationViewModel(application));
@@ -116,17 +113,12 @@ namespace NowOnline.AppHarbor.WebSite.Controllers
         [HttpPost]
         public ActionResult Delete(ApplicationViewModel model)
         {
+            var application = applicationRepository.GetById(model.Id);
+            if (application == null) { throw new ArgumentException(string.Format("Application with Id [{0}] does not exist", model.Id)); }
+
             try
             {
-                var application = applicationRepository.GetById(model.Id);
-                if (application == null)
-                {
-                    base.SetErrorMessage("Application with Id [{0}] does not exist", model.Id.ToString());
-                    RedirectToAction("Index");
-                }
-
-                application.Deleted = DateTime.Now;
-                applicationRepository.UpdateAndSubmit(application);
+                applicationRepository.SoftDeleteAndSubmit(application);
 
                 base.SetSuccessMessage("The application has been (soft) deleted.");
                 return RedirectToAction("Index");
@@ -142,7 +134,8 @@ namespace NowOnline.AppHarbor.WebSite.Controllers
         #region Private Helpers
         private void LoadTeamsInViewData(object selectedValue = null)
         {
-            ViewBag.TeamId = new SelectList(teamRepository.GetAll(), "Id", "Name", selectedValue);
+            var teams= teamRepository.GetAll().OrderBy(p => p.Name);
+            ViewBag.TeamId = new SelectList(teams, "Id", "Name", selectedValue);
         }
         #endregion
     }

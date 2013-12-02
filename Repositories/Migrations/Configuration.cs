@@ -1,4 +1,4 @@
-namespace NowOnline.AppHarbor.Repositories
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
 {
     using System;
     using System.Data.Entity;
@@ -9,21 +9,21 @@ namespace NowOnline.AppHarbor.Repositories
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(DataContext context)
         {
-            var seededBefore = context.Applications.Any();
+            var seededBefore = context.Set<Application>().Any();
             if (seededBefore) { return; }
 
             var teamA = new Team() { Name = "Team A" };
             var teamB = new Team() { Name = "Team B" };
 
-            context.Applications.Add(new Application() { Name = "Application A", Team = teamB });
-            context.Applications.Add(new Application() { Name = "Application B", Team = teamA });
-            context.Applications.Add(new Application() { Name = "Application C", Team = teamA });
+            context.Set<Application>().Add(new Application() { Name = "Application A", Team = teamB });
+            context.Set<Application>().Add(new Application() { Name = "Application B", Team = teamA });
+            context.Set<Application>().Add(new Application() { Name = "Application C", Team = teamA });
 
             context.SaveChanges();
         }

@@ -1,4 +1,4 @@
-﻿using NowOnline.AppHarbor.Repositories;
+﻿using ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace NowOnline.AppHarbor.WebSite
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite
 {
     public class MvcApplication : System.Web.HttpApplication
     {

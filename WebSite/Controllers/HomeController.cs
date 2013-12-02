@@ -1,12 +1,12 @@
-﻿using NowOnline.AppHarbor.Repositories;
+﻿using ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using NowOnline.AppHarbor.WebSite.Models;
+using ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Models;
 
-namespace NowOnline.AppHarbor.WebSite.Controllers
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Controllers
 {
     public class HomeController : ControllerBase
     {

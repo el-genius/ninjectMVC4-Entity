@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace NowOnline.AppHarbor.WebSite
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite
 {
     public class BundleConfig
     {

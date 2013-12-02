@@ -1,4 +1,4 @@
-﻿using NowOnline.AppHarbor.Repositories;
+﻿using ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace NowOnline.AppHarbor.WebSite.Models
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Models
 {
     public class ApplicationViewModel
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-namespace NowOnline.AppHarbor.Repositories
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
 {
     public class DataContext : DbContext, IDataContext
     {
@@ -20,6 +20,7 @@ namespace NowOnline.AppHarbor.Repositories
         }
 
         public IDbSet<Application> Applications { get; set; }
+        public IDbSet<Team> Teams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

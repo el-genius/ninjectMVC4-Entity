@@ -1,4 +1,4 @@
-namespace NowOnline.AppHarbor.Repositories
+namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
 {
     using System;
     using System.Data.Entity.Migrations;
