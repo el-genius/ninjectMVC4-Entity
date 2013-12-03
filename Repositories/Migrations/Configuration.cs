@@ -15,15 +15,14 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
 
         protected override void Seed(DataContext context)
         {
-            var seededBefore = context.Set<Application>().Any();
-            if (seededBefore) { return; }
+            context.Teams.AddOrUpdate(p => p.Name,
+                new Team() { Name = "Team A" },
+                new Team() { Name = "Team B" });
 
-            var teamA = new Team() { Name = "Team A" };
-            var teamB = new Team() { Name = "Team B" };
-
-            context.Set<Application>().Add(new Application() { Name = "Application A", Team = teamB, Description = "This is application A" });
-            context.Set<Application>().Add(new Application() { Name = "Application B", Team = teamA, Description = "This is application B" });
-            context.Set<Application>().Add(new Application() { Name = "Application C", Team = teamA, Description = "This is application C" });
+            context.Applications.AddOrUpdate(p => p.Name,
+                new Application() { Name = "Application A", TeamId = context.Teams.First(x => x.Name == "Team A").Id, Description = "This is application A" },
+                new Application() { Name = "Application B", TeamId = context.Teams.First(x => x.Name == "Team B").Id, Description = "This is application B" },
+                new Application() { Name = "Application C", TeamId = context.Teams.First(x => x.Name == "Team A").Id, Description = "This is application C" });
 
             context.SaveChanges();
         }
