@@ -21,9 +21,9 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
             var teamA = new Team() { Name = "Team A" };
             var teamB = new Team() { Name = "Team B" };
 
-            context.Set<Application>().Add(new Application() { Name = "Application A", Team = teamB });
-            context.Set<Application>().Add(new Application() { Name = "Application B", Team = teamA });
-            context.Set<Application>().Add(new Application() { Name = "Application C", Team = teamA });
+            context.Set<Application>().Add(new Application() { Name = "Application A", Team = teamB, Description = "This is application A" });
+            context.Set<Application>().Add(new Application() { Name = "Application B", Team = teamA, Description = "This is application B" });
+            context.Set<Application>().Add(new Application() { Name = "Application C", Team = teamA, Description = "This is application C" });
 
             context.SaveChanges();
         }

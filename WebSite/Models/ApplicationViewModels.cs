@@ -17,6 +17,7 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Models
         {
             this.Id = application.Id;
             this.Name = application.Name;
+            this.Description = application.Description;
             this.TeamName = application.Team != null ? application.Team.Name : string.Empty;
             this.TeamId = application.TeamId;
         }
@@ -26,6 +27,7 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Models
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
         public string TeamName { get; set; }
+        public string Description { get; set; }
 
         [Required(ErrorMessage = "Team is required")]
         public int TeamId { get; set; }
@@ -66,6 +68,7 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Models
         {
             var model = new Application();
             model.Name = this.Name;
+            model.Description = this.Description;
             model.TeamId = this.TeamId;
             return model;
         }

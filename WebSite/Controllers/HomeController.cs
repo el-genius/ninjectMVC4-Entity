@@ -14,5 +14,7 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Controllers
         {
             return RedirectToAction("Index", "Application");
         }
+
+
     }
 }

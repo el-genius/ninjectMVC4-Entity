@@ -107,19 +107,19 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             // setup
             var application = new ApplicationBuilder().WithName("New app").WithDefaultTeam().Build();
             var viewModel = new ApplicationManageViewModel(application);
-            applicationRepository.Setup(p => p.InsertAndSubmit(It.Is<Application>(x => 
-                x.Name == application.Name
-                && x.TeamId == application.TeamId))).Verifiable();
 
             // act
             var controller = CreateInstance();
             var model = (RedirectToRouteResult)controller.Create(viewModel);
 
             // verify
+            applicationRepository.Verify(p => p.InsertAndSubmit(It.Is<Application>(x =>
+                x.Name == application.Name
+                && x.TeamId == application.TeamId
+                && x.Description == application.Description)), Times.Once());
             Assert.IsTrue(controller.ViewData.ModelState.IsValid);
-            applicationRepository.VerifyAll();
-            Assert.IsNotNull(controller.TempData["SuccessMessage"]);
-            Assert.IsNull(controller.TempData["ErrorMessage"]);
+            Assert.IsNotNull(controller.ViewBag.SuccessMessage);
+            Assert.IsNull(controller.ViewBag.ErrorMessage);
             Assert.AreEqual("Index", model.RouteValues["Action"]);
         }
 
@@ -136,8 +136,8 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             ViewResult model = (ViewResult)controller.Create(viewModel);
 
             // verify
-            Assert.IsNotNull(controller.TempData["ErrorMessage"]);
-            Assert.IsNull(controller.TempData["SuccessMessage"]);
+            Assert.IsNotNull(controller.ViewBag.ErrorMessage);
+            Assert.IsNull(controller.ViewBag.SuccessMessage);
         }
 
         [TestMethod]
@@ -205,8 +205,8 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             // verify
             applicationRepository.VerifyAll();
             Assert.AreEqual("Index", model.RouteValues["Action"]);
-            Assert.IsNull(controller.TempData["SuccessMessage"]);
-            Assert.IsNotNull(controller.TempData["ErrorMessage"]);
+            Assert.IsNull(controller.ViewBag.SuccessMessage);
+            Assert.IsNotNull(controller.ViewBag.ErrorMessage);
         }
 
         [TestMethod]
@@ -232,10 +232,11 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             applicationRepository.Verify(p => p.UpdateAndSubmit(It.Is<Application>(
                 x => x.Id == application.Id
                 && x.Name == application.Name
+                && x.Description == application.Description
                 && x.TeamId == application.TeamId)), Times.Once());
             Assert.AreEqual("Index", model.RouteValues["Action"]);
-            Assert.IsNotNull(controller.TempData["SuccessMessage"]);
-            Assert.IsNull(controller.TempData["ErrorMessage"]);
+            Assert.IsNotNull(controller.ViewBag.SuccessMessage);
+            Assert.IsNull(controller.ViewBag.ErrorMessage);
         }
 
         [TestMethod]
@@ -255,8 +256,8 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             var model = (ViewResult)controller.Edit(viewModel);
 
             // verify 
-            Assert.IsNull(controller.TempData["SuccessMessage"]);
-            Assert.IsNotNull(controller.TempData["ErrorMessage"]);
+            Assert.IsNull(controller.ViewBag.SuccessMessage);
+            Assert.IsNotNull(controller.ViewBag.ErrorMessage);
         }
 
         [TestMethod]
@@ -272,6 +273,7 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
 
             // verify if correct application was returned
             Assert.AreEqual(application.Name, ((ApplicationViewModel)model.Model).Name);
+            Assert.AreEqual(application.Description, ((ApplicationViewModel)model.Model).Description);
             Assert.AreEqual(application.Id, ((ApplicationViewModel)model.Model).Id);
             Assert.AreEqual(application.TeamId, ((ApplicationViewModel)model.Model).TeamId);
         }
@@ -294,8 +296,8 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             applicationRepository.Verify(p => p.SoftDeleteAndSubmit(It.Is<Application>(
                 x => x.Id == application.Id)), Times.Once());
             Assert.AreEqual("Index", model.RouteValues["Action"]);
-            Assert.IsNotNull(controller.TempData["SuccessMessage"]);
-            Assert.IsNull(controller.TempData["ErrorMessage"]);
+            Assert.IsNotNull(controller.ViewBag.SuccessMessage);
+            Assert.IsNull(controller.ViewBag.ErrorMessage);
         }
 
         [TestMethod]
@@ -312,8 +314,8 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             // verify
             applicationRepository.VerifyAll();
             Assert.AreEqual("Index", model.RouteValues["Action"]);
-            Assert.IsNull(controller.TempData["SuccessMessage"]);
-            Assert.IsNotNull(controller.TempData["ErrorMessage"]);
+            Assert.IsNull(controller.ViewBag.SuccessMessage);
+            Assert.IsNotNull(controller.ViewBag.ErrorMessage);
         }
 
         [TestMethod]
@@ -355,8 +357,8 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             var model = (ViewResult)controller.Delete(viewModel);
 
             // verify 
-            Assert.IsNull(controller.TempData["SuccessMessage"]);
-            Assert.IsNotNull(controller.TempData["ErrorMessage"]);
+            Assert.IsNull(controller.ViewBag.SuccessMessage);
+            Assert.IsNotNull(controller.ViewBag.ErrorMessage);
         }
 
         private ApplicationController CreateInstance()

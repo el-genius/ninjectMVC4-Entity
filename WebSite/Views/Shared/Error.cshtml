@@ -1,17 +1,9 @@
-﻿@{
-    Layout = null;
+﻿@model System.Web.Mvc.HandleErrorInfo
+@{
+    ViewBag.Title = "Sorry, an error occured";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
-</head>
-<body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
-</body>
-</html>
+<p>Whoops! Something went wrong. A detailed warning is shown below:</p>
+<p class="alert alert-danger">@Model.Exception.ToString()</p>
+@Html.ActionLink("Back to index", "Index", "Application", null, new { @class = "btn btn-primary" })
