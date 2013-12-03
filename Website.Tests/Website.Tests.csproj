@@ -86,6 +86,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="HomeControllerTests.cs" />
     <Compile Include="Builders\ApplicationBuilder.cs" />
     <Compile Include="Builders\RandomNumber.cs" />
     <Compile Include="Builders\TeamBuilder.cs" />
