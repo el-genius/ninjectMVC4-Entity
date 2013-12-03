@@ -13,7 +13,7 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
         
         string IMigrationMetadata.Id
         {
-            get { return "201311241551454_InitialCreate"; }
+            get { return "201312022040058_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

@@ -13,7 +13,7 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
-                        Comments = c.String(),
+                        Deleted = c.DateTime(),
                         TeamId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
@@ -26,6 +26,7 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        Deleted = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id);
             
