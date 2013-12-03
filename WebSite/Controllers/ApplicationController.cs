@@ -79,8 +79,8 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Controllers
 
                 try
                 {
-  
                     application.Name = model.Name;
+                    application.Description = model.Description;
                     application.TeamId = model.TeamId;
                     applicationRepository.UpdateAndSubmit(application);
 
