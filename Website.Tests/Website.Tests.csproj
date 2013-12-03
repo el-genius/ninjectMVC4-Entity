@@ -86,6 +86,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ApplicationManageViewModelTests.cs" />
+    <Compile Include="ApplicationListViewModelTests.cs" />
+    <Compile Include="ApplicationViewModelTests.cs" />
     <Compile Include="HomeControllerTests.cs" />
     <Compile Include="Builders\ApplicationBuilder.cs" />
     <Compile Include="Builders\RandomNumber.cs" />
