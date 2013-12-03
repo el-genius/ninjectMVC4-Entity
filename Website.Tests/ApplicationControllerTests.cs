@@ -34,11 +34,10 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
         [TestMethod]
         public void Index_returns_list_of_all_applications_ordered_by_name()
         {
-            // setup
-            var application1 = new ApplicationBuilder().WithName("B").Build();
-            var application2 = new ApplicationBuilder().WithName("A").Build();
-            var application3 = new ApplicationBuilder().WithName("C").Build();
-            applicationRepository.Setup(p => p.GetAll()).Returns(new List<Application>() { application1, application2, application3 });
+            // setup;
+            applicationRepository.Setup(p => p.GetAll()).Returns(new List<Application>() { 
+                new ApplicationBuilder().WithName("B").Build(),
+                new ApplicationBuilder().WithName("A").Build()});
 
             // act
             var controller = CreateInstance();
@@ -46,10 +45,9 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             var result = (ApplicationListViewModel)model.Model;
 
             // verify
-            Assert.AreEqual(3, result.Applications.Count);
-            Assert.AreEqual("A", application2.Name);
-            Assert.AreEqual("B", application1.Name);
-            Assert.AreEqual("C", application3.Name);
+            Assert.AreEqual(2, result.Applications.Count);
+            Assert.AreEqual("A", result.Applications[0].Name);
+            Assert.AreEqual("B", result.Applications[1].Name);
         }
 
         [TestMethod]
@@ -65,18 +63,12 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
         }
 
         [TestMethod]
-        public void Create_returns_correct_viewmodel()
-        {
-            Assert.IsNotInstanceOfType(typeof(Application), CreateInstance().Index().GetType());
-        }
-
-        [TestMethod]
         public void Create_returns_view_preloaded_with_teams_ordered_by_name()
         {
             // setup
-            var team1 = new TeamBuilder().WithName("B").Build();
-            var team2 = new TeamBuilder().WithName("A").Build();
-            teamRepository.Setup(p => p.GetAll()).Returns(new List<Team>() { team1, team2 });
+            teamRepository.Setup(p => p.GetAll()).Returns(new List<Team>() { 
+                new TeamBuilder().WithName("B").Build(), 
+                new TeamBuilder().WithName("A").Build() });
 
             // act
             var controller = CreateInstance();
@@ -112,11 +104,13 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             var controller = CreateInstance();
             var model = (RedirectToRouteResult)controller.Create(viewModel);
 
-            // verify
+            // verify if all properties are passed to DAL for insert
             applicationRepository.Verify(p => p.InsertAndSubmit(It.Is<Application>(x =>
                 x.Name == application.Name
                 && x.TeamId == application.TeamId
                 && x.Description == application.Description)), Times.Once());
+
+            // verify
             Assert.IsTrue(controller.ViewData.ModelState.IsValid);
             Assert.IsNotNull(controller.ViewBag.SuccessMessage);
             Assert.IsNull(controller.ViewBag.ErrorMessage);
@@ -228,12 +222,14 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             var controller = CreateInstance();
             var model = (RedirectToRouteResult)controller.Edit(viewModel);
 
-            // verify 
+            // verify if all properties are passed to DAL
             applicationRepository.Verify(p => p.UpdateAndSubmit(It.Is<Application>(
                 x => x.Id == application.Id
                 && x.Name == application.Name
                 && x.Description == application.Description
                 && x.TeamId == application.TeamId)), Times.Once());
+
+            // verify
             Assert.AreEqual("Index", model.RouteValues["Action"]);
             Assert.IsNotNull(controller.ViewBag.SuccessMessage);
             Assert.IsNull(controller.ViewBag.ErrorMessage);
@@ -292,9 +288,11 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Tests
             var controller = CreateInstance();
             var model = (RedirectToRouteResult)controller.Delete(viewModel);
 
-            // verify 
+            // verify if correct application is passed to DAL
             applicationRepository.Verify(p => p.SoftDeleteAndSubmit(It.Is<Application>(
                 x => x.Id == application.Id)), Times.Once());
+
+            // verify
             Assert.AreEqual("Index", model.RouteValues["Action"]);
             Assert.IsNotNull(controller.ViewBag.SuccessMessage);
             Assert.IsNull(controller.ViewBag.ErrorMessage);

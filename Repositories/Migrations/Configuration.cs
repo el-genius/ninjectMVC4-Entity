@@ -7,6 +7,7 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
 
     public sealed class Configuration : DbMigrationsConfiguration<DataContext>
     {
+        // For more information, see http://blog.safaribooksonline.com/2013/05/20/entity-framework-using-database-migration-to-seed-our-database/
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
