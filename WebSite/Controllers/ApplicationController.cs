@@ -79,9 +79,7 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Controllers
 
                 try
                 {
-                    application.Name = model.Name;
-                    application.Description = model.Description;
-                    application.TeamId = model.TeamId;
+                    model.ToDalEntity(application);
                     applicationRepository.UpdateAndSubmit(application);
 
                     base.SetSuccessMessage("The application [{0}] has been updated.", application.Name);

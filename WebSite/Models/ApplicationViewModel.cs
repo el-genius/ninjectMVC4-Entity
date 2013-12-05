@@ -13,6 +13,7 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Models
         public ApplicationViewModel()
         {
         }
+
         public ApplicationViewModel(Application application)
         {
             this.Id = application.Id;

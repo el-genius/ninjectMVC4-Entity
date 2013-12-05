@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
 {
-    public class RepositoryBase<T> : IRepositoryBase<T> where T : class
+    public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
         private IDataContext dataContext;
 

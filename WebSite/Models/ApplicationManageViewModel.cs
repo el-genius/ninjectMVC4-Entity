@@ -21,12 +21,17 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.WebSite.Models
 
         public Application ToDalEntity()
         {
-            var model = new Application();
-            model.Id = this.Id;
-            model.Name = this.Name;
-            model.Description = this.Description;
-            model.TeamId = this.TeamId;
-            return model;
+            return ToDalEntity(new Application());
         }
+
+        public Application ToDalEntity(Application application)
+        {
+            application.Id = this.Id;
+            application.Name = this.Name;
+            application.Description = this.Description;
+            application.TeamId = this.TeamId;
+            return application;
+        }
+
     }
 }
