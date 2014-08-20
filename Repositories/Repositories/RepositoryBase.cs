@@ -53,12 +53,24 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
             {
                 throw new InvalidOperationException("This entity type does not support soft deletion. Please add a DateTime? property called Deleted and try again.");
             }
-
         }
 
         public void ExecuteCommand(string sql, params object[] parameters)
         {
             this.dataContext.ExecuteCommand(sql, parameters);
+        }
+
+        protected IQueryable<T> DataSource()
+        {
+            var query = dataContext.Set<T>().AsQueryable<T>();
+            var property = typeof(T).GetProperty("Deleted");
+
+            if (property != null)
+            {
+                query = query.Where(GetExpression("Deleted", null));
+            }
+
+            return query;
         }
 
         #region Private Helpers
@@ -77,19 +89,6 @@ namespace ChristiaanVerwijs.MvcSiteWithEntityFramework.Repositories
                 param);
 
             return lambda;
-        }
-
-        private IQueryable<T> DataSource()
-        {
-            var query = dataContext.Set<T>().AsQueryable<T>();
-            var property = typeof(T).GetProperty("Deleted");
-
-            if (property != null)
-            {
-                query = query.Where(GetExpression("Deleted", null));
-            }
-
-            return query;
         }
 
         protected virtual void SaveChanges()
